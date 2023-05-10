@@ -46,7 +46,6 @@ CREATE TABLE address
 	bunji varchar2(30)
 );
 
-
 CREATE TABLE cart
 (
 	cseq number(10) NOT NULL,

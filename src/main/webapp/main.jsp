@@ -17,8 +17,8 @@
 	<c:forEach items="${newList}" var="productVO" >
 		<div id="item"> <!--상품 한 개, 한 칸 -->
 			<a href="shop.do?command=productDetail&pseq=${productVO.pseq}">
-				<img src="product_images/${productVo.image}"/>
-				<h3>${productVo.name}
+				<img src="product_images/${productVO.image}"/>
+				<h3>${productVO.name}
 					- <fmt:formatNumber value="${productVO.price2}" type="currency"/></h3>		
 			</a>
 		</div>
@@ -32,29 +32,13 @@
 	<c:forEach items="${bestList}" var="productVO" >
 		<div id="item"> <!--상품 한 개, 한 칸 -->
 			<a href="shop.do?command=productDetail&pseq=${productVO.pseq}">
-				<img src="product_images/${productVo.image}"/>
-				<h3>${productVo.name}
+				<img src="product_images/${productVO.image}"/>
+				<h3>${productVO.name}
 					- <fmt:formatNumber value="${productVO.price2}" type="currency"/></h3>
 			</a>
 		</div>
 	</c:forEach>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
