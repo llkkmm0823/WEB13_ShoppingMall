@@ -17,10 +17,10 @@ public class LogoutAction implements Action {
 
 		HttpSession session = request.getSession();
 		session.removeAttribute("loginUser");
-		
+
 		RequestDispatcher dp = request.getRequestDispatcher("shop.do?command=index");
 		dp.forward(request, response);
-		
+
 	}
 
 }

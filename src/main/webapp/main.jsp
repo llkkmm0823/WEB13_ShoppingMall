@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file ="header.jsp"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!--매번 맨 위의 카테고리, 로그인정보등의 내용을 일일히 코드 및 복붙할 수 없으므로 따로 작성해두고 include하는 방식 -->
 

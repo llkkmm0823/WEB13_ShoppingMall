@@ -11,15 +11,15 @@ import com.ezen.shop.dto.MemberVO;
 import com.ezen.shop.utill.Dbman;
 
 public class MemberDao {
-	
+
 	private MemberDao() {}
 	private static MemberDao itc = new MemberDao();
 	public static MemberDao getInstance() { return itc; }
-	
+
 	Connection con=null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-	
+
 	public MemberVO getMember(String id) {
 		MemberVO mvo = null;
 		con = Dbman.getConnection();
@@ -44,16 +44,16 @@ public class MemberDao {
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { Dbman.close(con, pstmt, rs);
 		}
-		
+
 		return mvo;
 	}
-	
-	
-	
+
+
+
 
 	public ArrayList<AddressVO> selectAddress(String dong) {
-		
-		ArrayList<AddressVO> list = new ArrayList<AddressVO>();
+
+		ArrayList<AddressVO> list = new ArrayList<>();
 		String sql = "select*from address where dong like '%'||?||'%'";
 		con = Dbman.getConnection();
 		try {
@@ -96,7 +96,7 @@ public class MemberDao {
 			pstmt.setString(8, mvo.getEmail());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) { e.printStackTrace();
-		} finally { Dbman.close(con, pstmt, rs);   
+		} finally { Dbman.close(con, pstmt, rs);
 		}
 		return result;
 	}
@@ -119,10 +119,10 @@ public class MemberDao {
 			pstmt.setString(6, mvo.getAddress2());
 			pstmt.setString(7, mvo.getPhone());
 			pstmt.setString(8, mvo.getId());
-			
+
 			result = pstmt.executeUpdate();
-		} catch (SQLException e) {	e.printStackTrace(); 		
-		} finally { 	Dbman.close(con, pstmt, rs); }	
+		} catch (SQLException e) {	e.printStackTrace();
+		} finally { 	Dbman.close(con, pstmt, rs); }
 		return result;
 	}
 }

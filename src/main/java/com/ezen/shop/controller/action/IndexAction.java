@@ -15,18 +15,18 @@ public class IndexAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		ProductDao pdao = ProductDao.getInstance();
-		
+
 		ArrayList<ProductVO> bestList = pdao.getBestList();
 		ArrayList<ProductVO> newList = pdao.getNewList();
-		
+
 		request.setAttribute("bestList", bestList);
 		request.setAttribute("newList", newList);
-		
+
 		RequestDispatcher rd = request.getRequestDispatcher("main.jsp");
 		rd.forward(request, response);
-	
+
 	}
 
 }

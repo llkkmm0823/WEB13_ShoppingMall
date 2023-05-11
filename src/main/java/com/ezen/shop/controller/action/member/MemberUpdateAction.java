@@ -28,7 +28,7 @@ public class MemberUpdateAction implements Action {
 
 		MemberDao mdao = MemberDao.getInstance();
 		mdao.updateMember(mvo);
-		
+
 		HttpSession session = request.getSession(); // 정보가 수정되었으면 수정된 내용을 세션의 로그인 값으로 변경
 		session.setAttribute("loginUser", mvo);
 		RequestDispatcher dp = request.getRequestDispatcher("shop.do?command=index");

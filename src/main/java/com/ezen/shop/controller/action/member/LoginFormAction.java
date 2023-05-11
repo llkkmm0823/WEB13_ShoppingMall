@@ -14,11 +14,11 @@ public class LoginFormAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String url = "member/login.jsp";		
-		
+		String url = "member/login.jsp";
+
 		RequestDispatcher dp = request.getRequestDispatcher(url);
 		dp.forward(request, response);
-		
+
 	}
 
 }

@@ -19,14 +19,14 @@ public class IdCheckFormAction implements Action {
 		String id = request.getParameter("id");
 		MemberDao mdao = MemberDao.getInstance();
 		MemberVO mvo = mdao.getMember(id);
-		
+
 		int result = 1;
 		if( mvo == null ) request.setAttribute("result", -1);
 		else request.setAttribute("result", 1);
-		
+
 		request.setAttribute("id", id);
-		
-		
+
+
 		RequestDispatcher rd = request.getRequestDispatcher("member/idCheck.jsp");
 		rd.forward(request, response);
 	}

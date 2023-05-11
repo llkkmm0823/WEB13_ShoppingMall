@@ -57,7 +57,7 @@ CREATE TABLE cart
 	PRIMARY KEY (cseq)
 );
 
-
+select*from member
 CREATE TABLE member
 (
 	id varchar2(20) NOT NULL,

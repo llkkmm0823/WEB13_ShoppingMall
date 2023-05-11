@@ -7,10 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Dbman {
-	
+
 	static String driver = "oracle.jdbc.driver.OracleDriver";
 	static String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	
+
 	public static Connection getConnection() {
 		Connection con = null;
 		try {
@@ -25,7 +25,7 @@ public class Dbman {
 			if( con!=null) con.close();
 			if( pstmt!=null) pstmt.close();
 			if( rs!=null) rs.close();
-		} catch (SQLException e) {  e.printStackTrace();  }	
+		} catch (SQLException e) {  e.printStackTrace();  }
 	}
 
 }

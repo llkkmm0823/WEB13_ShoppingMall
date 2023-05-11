@@ -16,19 +16,19 @@ public class FindZipNumAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		String dong=request.getParameter("dong");
-		
+
 		if(dong != null) {
-			if(dong.equals("")==false){
+			if(!dong.equals("")){
 				MemberDao mdao = MemberDao.getInstance();
 				ArrayList<AddressVO> list = mdao.selectAddress(dong);
 				System.out.println(list.size());
 				request.setAttribute("addressList", list);
 			}
-			
+
 		}
-		
+
 		RequestDispatcher rd = request.getRequestDispatcher("member/findZipNum.jsp");
 		rd.forward(request, response);
 	}

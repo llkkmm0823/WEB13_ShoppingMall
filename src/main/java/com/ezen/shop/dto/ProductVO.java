@@ -3,7 +3,7 @@ package com.ezen.shop.dto;
 import java.sql.Timestamp;
 
 public class ProductVO {
-	
+
 	private Integer pseq;
 	private String name;
 	private String kind;
@@ -15,8 +15,8 @@ public class ProductVO {
 	private String useyn;
 	private String bestyn;
 	private Timestamp indate;
-	
-	
+
+
 	public Integer getPseq() {
 		return pseq;
 	}
@@ -83,7 +83,7 @@ public class ProductVO {
 	public void setIndate(Timestamp indate) {
 		this.indate = indate;
 	}
-	
+
 
 
 

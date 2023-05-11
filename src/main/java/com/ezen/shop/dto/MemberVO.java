@@ -14,7 +14,7 @@ public class MemberVO {
 	private String phone;
 	private String useyn;
 	private Timestamp indate;
-	
+
 	public String getId() {
 		return id;
 	}
@@ -75,5 +75,5 @@ public class MemberVO {
 	public void setIndate(Timestamp indate) {
 		this.indate = indate;
 	}
-	
+
 }
