@@ -44,7 +44,10 @@ function go_order_insert(){
 	document.formm.submit();	
 }
 
-
+function go_order(){
+	document.formm.action ="shop.do?command=orderInsertOne";
+	document.formm.submit();	
+}
 
 
 

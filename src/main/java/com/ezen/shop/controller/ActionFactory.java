@@ -16,6 +16,7 @@ import com.ezen.shop.controller.action.mypage.CartDeleteAction;
 import com.ezen.shop.controller.action.mypage.CartInsertAction;
 import com.ezen.shop.controller.action.mypage.CartListAction;
 import com.ezen.shop.controller.action.mypage.OrderInsertAction;
+import com.ezen.shop.controller.action.mypage.OrderInsertOneAction;
 import com.ezen.shop.controller.action.mypage.OrderListAction;
 import com.ezen.shop.controller.action.product.CategoryAction;
 import com.ezen.shop.controller.action.product.ProductDetailAction;
@@ -53,7 +54,7 @@ public class ActionFactory {
 		//mypage(order)
 		else if(command.equals("orderInsert") ) ac = new OrderInsertAction();
 		else if(command.equals("orderList") ) ac = new OrderListAction();
-		
+		else if(command.equals("orderInsertOne") ) ac = new OrderInsertOneAction();
 		
 		return ac;
 	}

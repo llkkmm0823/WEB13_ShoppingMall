@@ -83,10 +83,12 @@ public class OrderDao {
 				ovo.setOdseq(  rs.getInt("odseq") );
 				ovo.setId(  rs.getString("id") );
 				ovo.setMname(  rs.getString("mname") );
+				ovo.setPname(  rs.getString("pname") );
 				ovo.setAddress1(  rs.getString("address1") );
 				ovo.setPhone(  rs.getString("phone") );
 				ovo.setPrice2(  rs.getInt("price2") );
 				ovo.setQuantity(  rs.getInt("quantity") );
+				ovo.setIndate(  rs.getTimestamp("indate") );
 				list.add(ovo);
 			}
 		} catch (SQLException e) { e.printStackTrace();
@@ -95,8 +97,30 @@ public class OrderDao {
 		return list;
 
 	}
-	
-	
+
+	public int insertOrderOne(int pseq, int quantity, String id) {
+		int oseq=0;
+		con = Dbman.getConnection();
+		String sql="insert into orders(oseq,id) values(orders_seq.nextVal,?)";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,  id);
+			pstmt.executeUpdate();
+			sql="select max(oseq) as moseq from orders";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) oseq = rs.getInt("moseq");
+			sql="insert into order_detail(odseq,oseq,pseq,quantity) values(order_detail_seq.nextVal,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1,  oseq);
+			pstmt.setInt(1,  pseq);
+			pstmt.setInt(1,  quantity);
+			pstmt.executeUpdate();
+	} catch (SQLException e) { e.printStackTrace();
+	} finally { Dbman.close(con, pstmt, rs);
+	}		
+		return oseq;
+	}
 	
 }
 
