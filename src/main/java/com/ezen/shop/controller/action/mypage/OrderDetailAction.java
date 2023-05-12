@@ -13,30 +13,38 @@ import com.ezen.shop.dao.OrderDao;
 import com.ezen.shop.dto.MemberVO;
 import com.ezen.shop.dto.OrderVO;
 
-public class OrderListAction implements Action {
+public class OrderDetailAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String url = "mypage/orderList.jsp";
+		//전달된 주문번호 저장
 		int oseq=Integer.parseInt(request.getParameter("oseq"));
+		//로그인 체크
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
+		String url="";
 		if(mvo==null) {
 			url="shop.do?command=loginForm";
 		}else {
+			url="mypage/orderDetail.jsp";
+
+			//주문번호로 조회한 주문(상품) 리스트 리턴
 			OrderDao odao = OrderDao.getInstance();
-			// order_view 에서 주문번호 (oseq)로 주문을 검색
-			ArrayList<OrderVO> list=odao.listOrderByOseq(oseq);
-			int totalPrice=0;
-			for (OrderVO ovo:list)//조회된 주문의 총 결제금액 계산
-				totalPrice+=ovo.getPrice2()*ovo.getQuantity();
-			request.setAttribute("orderList",list);
-			request.setAttribute("totalPrice",totalPrice);
+			ArrayList<OrderVO> orderList = odao.listOrderByOseq(oseq);
+			request.setAttribute("orderList",orderList);
 
+			//리턴받은 주문리스트의 첫 번째를 이용하여 orderDetail이란 이름으로 리퀘스트에 담음
+			request.setAttribute("orderDetail", orderList.get(0));
+			//주문자 정보 및 배송정보 표시용으로 별도 저장
+
+			//주문 총 금액을 계산하고 리퀘스트에 담음
+			int totalPrice = 0;
+			for(OrderVO ovo:orderList)
+				totalPrice += ovo.getPrice2() * ovo.getQuantity();
+			request.setAttribute("totalPrice", totalPrice);
 		}
-
 		request.getRequestDispatcher(url).forward(request, response);
+
 	}
 
 }

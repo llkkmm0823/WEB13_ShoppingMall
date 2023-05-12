@@ -109,3 +109,12 @@ function go_update(){
 	}
 	
 }
+
+
+function withdrawalConfirm(){
+	
+	var a = confirm("정말로 탈퇴하시겠습니까?");
+	if(a){
+		location.href='shop.do?command=deleteMember';
+	}
+}

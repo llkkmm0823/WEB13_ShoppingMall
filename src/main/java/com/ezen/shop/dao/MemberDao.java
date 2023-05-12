@@ -125,5 +125,22 @@ public class MemberDao {
 		} finally { 	Dbman.close(con, pstmt, rs); }
 		return result;
 	}
+
+
+
+
+	public void deleteMember(String id) {
+		con = Dbman.getConnection();
+		String sql="update member set useyn='N' where id=?";
+		try {
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, id);
+				pstmt.executeUpdate();
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs);
+		}
+	}
+
+
 }
 

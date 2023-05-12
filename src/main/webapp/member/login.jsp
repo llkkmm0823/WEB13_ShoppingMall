@@ -22,6 +22,8 @@
 		</div><br><br><br>
 		
 		<div>&nbsp;&nbsp;&nbsp;${param.message}</div>
+				<div>&nbsp;&nbsp;&nbsp;${message}</div>
+		
 	</form>
 </article>
 <%@ include file="../footer.jsp"%>

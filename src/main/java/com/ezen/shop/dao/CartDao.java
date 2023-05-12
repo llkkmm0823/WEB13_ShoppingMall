@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.ezen.shop.dto.CartVO;
-import com.ezen.shop.dto.CartVO;
 import com.ezen.shop.utill.Dbman;
 
 public class CartDao {
@@ -34,7 +33,7 @@ public class CartDao {
 			pstmt.executeUpdate();
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { Dbman.close(con, pstmt, rs);
-		
+
 		}
 	}
 
@@ -42,7 +41,7 @@ public class CartDao {
 
 
 	public ArrayList<CartVO> selectCart(String id) {
-		ArrayList<CartVO> list = new ArrayList<CartVO>();
+		ArrayList<CartVO> list = new ArrayList<>();
 		con = Dbman.getConnection();
 		String sql="select*from cart_view where id=? and result='1'";
 		//아이디로 검색, result가 1인것만 조회

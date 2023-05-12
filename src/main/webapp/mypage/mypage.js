@@ -2,11 +2,19 @@ function go_cart(){
 	if(document.formm.quantity.value==""){
 		alert("수량을 입력해 주세요");
 		document.formm.quantity.focus();
-		}else{
-		document.formm.action="shop.do?command=cartInsert";
-		document.formm.submit();
+	}else{
+	document.formm.action="shop.do?command=cartInsert";
+	document.formm.submit();
 	}
 }
+
+			/*var a = confirm("장바구니로 이동하시겠습니까?");
+			if(a){//확인과 취소버튼이 팝업_확인:true 취소:false
+			CartInsertAction에서 계속
+*/
+
+
+
 function go_cart_delete(){
 	
 	//자바스크립트에서 jsp 페이지 내에 있는 동일한 name의 두개 이상의 입력한 (input태그)들은 하나의 이름의 배열로 인식

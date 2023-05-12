@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+.clear{ clear:both;}
+header {  height: 151px;}
+body {  background-color: white; margin: 0; padding: 0; font-size: 0.75em;  line-height: 1.2em;
+ color: #333; }
+a { text-decoration: none; color: #333; }
+a:hover { text-decoration: underline; color: #F90; cursor: pointer; }
+
+#wrap { width: 971px; text-align: center; margin: 0px; margin-right: auto; margin-left: auto;
+ min-height: 923px; }
+#login { width: 200px; float: right; margin-top: 10px;}
+#login a { text-decoration: none; font-size: 10pt;}
+#login a:hover { color: orange;}
+
+.btn { width: 100px; border-radius: 5px; background-color: #FC3; color: #333; text-align: center;
+ text-decoration: none; box-shadow: 3px 3px 3px #999999; padding: 5px; margin: 0 7px 7px 0px;  }
+.btn:HOVER {  background-color: #FFF; }
+.btn:ACTIVE { box-shadow: none; }
+
+article { min-height: 600px; } 
+#logo { width: 971px; margin: 60px 0 40px 0; }
+ 
+
+#loginform {  margin-left: 400px; }
+th { background-color: #E4E4E4; }
+th, td{  padding: 8px 5px; }

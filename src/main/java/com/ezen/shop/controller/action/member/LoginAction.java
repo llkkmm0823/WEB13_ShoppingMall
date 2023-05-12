@@ -16,17 +16,20 @@ public class LoginAction implements Action {
 
    @Override
    public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      
+
       String id=request.getParameter("id");
       String pwd=request.getParameter("pwd");
-      
+
       MemberDao mdao=MemberDao.getInstance();
       MemberVO mvo=mdao.getMember(id);
-      
+
       String url="member/login.jsp";
-      
-      if(mvo==null) 
+
+      if(mvo==null)
          request.setAttribute("message", "없는 아이디입니다.");
+      else if(mvo.getUseyn().equals("N"))
+          request.setAttribute("message", "회원가입 후 탈퇴이력이 있습니다. 관리자에 문의하세요");
+      //필요에 따라 url을 변경해서 별도의 페이지로 연결하여 재가입을 진행_우선생략
       else if(mvo.getPwd()==null)
          request.setAttribute("message", "DB오류. 관리자에게 문의하세요");
       else if(!mvo.getPwd().equals(pwd))

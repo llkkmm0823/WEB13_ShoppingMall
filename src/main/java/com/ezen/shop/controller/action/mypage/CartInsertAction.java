@@ -33,7 +33,9 @@ public class CartInsertAction implements Action {
 
 			CartDao cdao = CartDao.getInstance();
 			cdao.insertCart(cvo);
-			url="shop.do?command=cartList";
+			//url="shop.do?command=cartList";   _ 장바구니로 이동하시겠습니까? confirm 처리를 위해 주석처리
+			//별도의 jsp파일로 이동하여 거기서 confirm 으로 물어보고 예 아니요를 통해 이동해야함
+			url="shop.do?command=cartConfirm";
 		}
 		response.sendRedirect(url);
 	}
