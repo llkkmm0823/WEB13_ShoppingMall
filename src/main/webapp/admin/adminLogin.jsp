@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="admin/css/admin.css">
+<title>adminLogin.jsp</title>
+<link href="admin/css/admin.css" rel="stylesheet" />
 <script src="admin/script/admin.js"></script>
 </head>
 <body>

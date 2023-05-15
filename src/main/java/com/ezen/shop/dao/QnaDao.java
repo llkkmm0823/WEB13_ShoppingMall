@@ -11,7 +11,7 @@ import com.ezen.shop.utill.Dbman;
 import com.ezen.shop.utill.Paging;
 
 public class QnaDao {
-	
+
 	private QnaDao() {}
 	private static QnaDao itc = new QnaDao();
 	public static QnaDao getInstance() { return itc; }
@@ -19,9 +19,9 @@ public class QnaDao {
 	Connection con=null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-	
+
 	public ArrayList<QnaVO> selectQna(Paging paging) {
-		ArrayList<QnaVO> list= new ArrayList<QnaVO>();
+		ArrayList<QnaVO> list= new ArrayList<>();
 		//String sql = "select*from qna order by qseq desc";
 		String sql = " select*from( "
 				+ " select*from( "
@@ -43,7 +43,7 @@ public class QnaDao {
 				qvo.setIndate(rs.getTimestamp("indate"));
 				qvo.setReply(rs.getString("reply"));
 				qvo.setRep(rs.getString("rep"));
-				list.add(qvo);				
+				list.add(qvo);
 			}
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { Dbman.close(con, pstmt, rs);
@@ -102,6 +102,6 @@ public class QnaDao {
 		} finally { Dbman.close(con, pstmt, rs);
 		}
 	}
-	
-	
+
+
 }

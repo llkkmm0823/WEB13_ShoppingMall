@@ -4,6 +4,13 @@ import com.ezen.shop.controller.action.Action;
 import com.ezen.shop.controller.action.IndexAction;
 import com.ezen.shop.controller.action.admin.AdminAction;
 import com.ezen.shop.controller.action.admin.AdminLoginAction;
+import com.ezen.shop.controller.action.admin.AdminLogoutAction;
+import com.ezen.shop.controller.action.admin.AdminProductDetailAction;
+import com.ezen.shop.controller.action.admin.AdminProductListAction;
+import com.ezen.shop.controller.action.admin.AdminProductUpdateAction;
+import com.ezen.shop.controller.action.admin.AdminProductUpdateFormAction;
+import com.ezen.shop.controller.action.admin.AdminProductWriteAction;
+import com.ezen.shop.controller.action.admin.AdminProductWriteFormAction;
 import com.ezen.shop.controller.action.member.ContractAction;
 import com.ezen.shop.controller.action.member.DeleteMemberAction;
 import com.ezen.shop.controller.action.member.EditFormAction;
@@ -74,7 +81,7 @@ public class ActionFactory {
 		else if(command.equals("mypage") ) ac = new MypageAction();
 		else if(command.equals("orderAll") ) ac = new OrderAllAction();
 		else if(command.equals("orderDetail") ) ac = new OrderDetailAction();
-		
+
 		//qna
 		else if(command.equals("qnaList") ) ac = new QnaListAction();
 		else if(command.equals("qnaView") ) ac = new QnaViewAction();
@@ -84,7 +91,17 @@ public class ActionFactory {
 		//admin
 		else if(command.equals("admin") ) ac = new AdminAction();
 		else if(command.equals("adminLogin") ) ac = new AdminLoginAction();
+		else if(command.equals("adminProductList") ) ac = new AdminProductListAction();
+		else if(command.equals("adminLogout") ) ac = new AdminLogoutAction();
+		else if(command.equals("adminProductDetail") ) ac = new AdminProductDetailAction();
+		else if(command.equals("adminProductWriteForm") ) ac = new AdminProductWriteFormAction();
+		else if(command.equals("adminProductWrite") ) ac = new AdminProductWriteAction();
+		else if(command.equals("adminProductUpdateForm") ) ac = new AdminProductUpdateFormAction();
+		else if(command.equals("adminProductUpdate") ) ac = new AdminProductUpdateAction();
 
+		
+		
+		
 		
 		return ac;
 	}

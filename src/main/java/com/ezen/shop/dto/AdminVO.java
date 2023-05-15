@@ -1,12 +1,12 @@
 package com.ezen.shop.dto;
 
 public class AdminVO {
-	
+
 	private String id;
 	private String pwd;
 	private String name;
 	private String phone;
-	
+
 	public String getId() {
 		return id;
 	}
@@ -31,5 +31,5 @@ public class AdminVO {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
+
 }

@@ -18,7 +18,7 @@ public class QnaViewAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "qna/qnaView.jsp";
 		int qseq = Integer.parseInt(request.getParameter("qseq"));
-		
+
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
 			if(mvo==null) {
@@ -28,7 +28,7 @@ public class QnaViewAction implements Action {
 			QnaVO qvo = qdao.getQna(qseq);
 			request.setAttribute("qnaVO", qvo);
 			}
-			
+
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 }

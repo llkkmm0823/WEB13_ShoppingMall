@@ -2,7 +2,6 @@ package com.ezen.shop.controller.action.admin;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,13 +16,13 @@ public class AdminLoginAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		 String workId=request.getParameter("id");
-	     String workPwd=request.getParameter("pwd");
-	     
+		 String workId=request.getParameter("workId");
+	     String workPwd=request.getParameter("workPwd");
+
 	      String url="shop.do?command=admin";
 
 	      AdminDao adao=AdminDao.getInstance();
-	      AdminVO avo=adao.getMember(workId);
+	      AdminVO avo=adao.workerCheck(workId);
 
 
 	      if(avo==null)

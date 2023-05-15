@@ -1,7 +1,7 @@
 package com.ezen.shop.utill;
 
 public class Paging {
-	
+
 	private int page =1;
 	private int totalCount;
 	private int beginPage;
@@ -12,34 +12,34 @@ public class Paging {
 	private boolean next;
 	private int startNum;
 	private int endNum;
-	
-	
+
+
 	private void paging() {
 		double temp = page / (double) displayPage;
-		
-		temp = Math.ceil( temp );   
-		
-    	endPage = (int)(temp * displayPage);    	
+
+		temp = Math.ceil( temp );
+
+    	endPage = (int)(temp * displayPage);
     	beginPage = endPage - (displayPage - 1);
-    	
+
     	int totalPage = (int)Math.ceil(totalCount/(double)displayRow);
-    	
-    	if( totalPage < endPage ) {  
-    		endPage = totalPage;        
-    		next = false;                  
-    	} else{  
+
+    	if( totalPage < endPage ) {
+    		endPage = totalPage;
+    		next = false;
+    	} else{
             next = true;
         }
-    	prev = (beginPage==1)? false : true;  
-    	
-    	startNum = (page-1)*displayRow+1;   
-    
-        endNum = page*displayRow;             
-        
+    	prev = (beginPage==1)? false : true;
+
+    	startNum = (page-1)*displayRow+1;
+
+        endNum = page*displayRow;
+
         System.out.println(beginPage + " "  + endPage + " "  + startNum + " "  + endNum +" " + totalCount);
-    	
+
 	}
-	
+
 	public int getPage() {
 		return page;
 	}
@@ -101,7 +101,7 @@ public class Paging {
 	public void setEndNum(int endNum) {
 		this.endNum = endNum;
 	}
-	
+
 
 
 }

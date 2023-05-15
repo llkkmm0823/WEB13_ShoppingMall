@@ -69,7 +69,7 @@ public class OrderDao {
 	}
 
 	public ArrayList<OrderVO> listOrderByOseq(int oseq){
-		ArrayList<OrderVO> list= new ArrayList<OrderVO>();
+		ArrayList<OrderVO> list= new ArrayList<>();
 		String sql = " select * from order_view where oseq=? ";
 		con = Dbman.getConnection();
 		try {
@@ -199,7 +199,7 @@ public class OrderDao {
 	}
 
 	public ArrayList<Integer> selectOseqOrderIng(String id) {
-		ArrayList<Integer> list = new ArrayList<Integer>();
+		ArrayList<Integer> list = new ArrayList<>();
 		String sql = "select distinct oseq from order_view where id=? and result='1' order by oseq desc";
 		con = Dbman.getConnection();
 		try {
@@ -214,7 +214,7 @@ public class OrderDao {
 	}
 
 	public ArrayList<Integer> selectOseqOrderAll(String id) {
-		ArrayList<Integer> list = new ArrayList<Integer>();
+		ArrayList<Integer> list = new ArrayList<>();
 		String sql = "select oseq from(select distinct oseq,result from "
 				+ "(select*from order_view where id=?) order by result, oseq desc)";
 		con = Dbman.getConnection();

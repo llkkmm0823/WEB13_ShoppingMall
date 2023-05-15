@@ -3,7 +3,7 @@ package com.ezen.shop.dto;
 import java.sql.Timestamp;
 
 public class QnaVO {
-	
+
 	private Integer qseq;
 	private String subject;
 	private String content;
@@ -11,8 +11,8 @@ public class QnaVO {
 	private String id;
 	private String rep;
 	private Timestamp indate;
-	
-	
+
+
 	public Integer getQseq() {
 		return qseq;
 	}
@@ -55,6 +55,6 @@ public class QnaVO {
 	public void setIndate(Timestamp indate) {
 		this.indate = indate;
 	}
-	
+
 
 }

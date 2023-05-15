@@ -20,25 +20,25 @@ public class QnaListAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String url = "qna/qnaList.jsp";
-		
+
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
 		if(mvo==null) {
 			url="shop.do?command=loginForm";
 		}else {
 		QnaDao qdao = QnaDao.getInstance();
-		
+
 		int page = 1;
 		if(request.getParameter("page")!=null)
 			page=Integer.parseInt(request.getParameter("page"));
-		
+
 		Paging paging = new Paging();
 		paging.setPage(page);
-		
+
 		int count = qdao.getAllCount();
 		paging.setTotalCount(count);
-		
-		
+
+
 		ArrayList<QnaVO>list = qdao.selectQna(paging);
 		request.setAttribute("qnaList", list);
 		request.setAttribute("paging", paging);
