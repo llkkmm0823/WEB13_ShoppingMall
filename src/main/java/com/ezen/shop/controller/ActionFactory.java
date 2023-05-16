@@ -5,6 +5,8 @@ import com.ezen.shop.controller.action.IndexAction;
 import com.ezen.shop.controller.action.admin.AdminAction;
 import com.ezen.shop.controller.action.admin.AdminLoginAction;
 import com.ezen.shop.controller.action.admin.AdminLogoutAction;
+import com.ezen.shop.controller.action.admin.AdminOrderListAction;
+import com.ezen.shop.controller.action.admin.AdminOrderSaveAction;
 import com.ezen.shop.controller.action.admin.AdminProductDetailAction;
 import com.ezen.shop.controller.action.admin.AdminProductListAction;
 import com.ezen.shop.controller.action.admin.AdminProductUpdateAction;
@@ -98,6 +100,8 @@ public class ActionFactory {
 		else if(command.equals("adminProductWrite") ) ac = new AdminProductWriteAction();
 		else if(command.equals("adminProductUpdateForm") ) ac = new AdminProductUpdateFormAction();
 		else if(command.equals("adminProductUpdate") ) ac = new AdminProductUpdateAction();
+		else if(command.equals("adminOrderList") ) ac = new AdminOrderListAction();
+		else if(command.equals("adminOrderSave") ) ac = new AdminOrderSaveAction();
 
 		
 		

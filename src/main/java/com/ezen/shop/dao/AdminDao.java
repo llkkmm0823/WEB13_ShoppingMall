@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.ezen.shop.dto.AdminVO;
+import com.ezen.shop.dto.OrderVO;
 import com.ezen.shop.dto.ProductVO;
 import com.ezen.shop.utill.Dbman;
 import com.ezen.shop.utill.Paging;
@@ -76,9 +77,10 @@ public class AdminDao {
 		return list;
 	}
 
-	public int getAllcount(String key) {
+	public int getAllcount(String tablename, String fieldname, String key) {
 		int count=0;
-		String sql="select count(*) as cnt from product where name like'%'||?||'%'";
+		String sql="select count(*) as cnt from " + tablename 
+				+ " where " + fieldname + " like'%'||?||'%'";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -131,4 +133,53 @@ public class AdminDao {
 		} finally { Dbman.close(con, pstmt, rs);
 	}
 	}
+
+	public ArrayList<OrderVO> adminOrderList(Paging paging, String key) {
+		ArrayList<OrderVO> list = new ArrayList<OrderVO>();
+		String sql="select * from ( "
+				+ " select * from ( "
+				+ " select rownum as rn,m.*from "
+				+ " ((select*from order_view where pname like'%'||?||'%' order by result, odseq desc) m)"
+				+ " ) where rn>=? "
+				+ " ) where rn<=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, key);
+			pstmt.setInt(2, paging.getStartNum());
+			pstmt.setInt(3, paging.getEndNum());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				OrderVO ovo = new OrderVO();
+				ovo.setOdseq(  rs.getInt("odseq") );					ovo.setOseq(  rs.getInt("oseq") );
+				ovo.setId(  rs.getString("id") );							ovo.setIndate(  rs.getTimestamp("indate") );
+				ovo.setMname(  rs.getString("mname") );			ovo.setAddress2(  rs.getString("address2") );
+				ovo.setAddress1(  rs.getString("address1") );	ovo.setResult(  rs.getString("result") );
+				ovo.setPhone(  rs.getString("phone") );				ovo.setZip_num(  rs.getString("zip_num") );
+				ovo.setQuantity(  rs.getInt("quantity") );			ovo.setPseq(  rs.getInt("pseq") );
+				ovo.setPrice2(  rs.getInt("price2") );					ovo.setPname(  rs.getString("pname") );
+		
+				list.add(ovo);
+			}
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs);
+		}
+		return list;
+	}
+
+	public void updateOrderResult(int odseq) {
+		String sql = "update order_detail set result='2' where odseq=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, odseq);
+			pstmt.executeUpdate();
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs);
+	}
+}
+	
+	
+	
+	
 }

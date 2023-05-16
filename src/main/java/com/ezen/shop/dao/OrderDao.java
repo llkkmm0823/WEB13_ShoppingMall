@@ -215,8 +215,9 @@ public class OrderDao {
 
 	public ArrayList<Integer> selectOseqOrderAll(String id) {
 		ArrayList<Integer> list = new ArrayList<>();
-		String sql = "select oseq from(select distinct oseq,result from "
-				+ "(select*from order_view where id=?) order by result, oseq desc)";
+		String sql = "select oseq from( "
+				+ " select distinct oseq,result from "
+				+ " (select*from order_view where id=?) order by result, oseq desc)";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);

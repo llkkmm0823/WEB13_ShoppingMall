@@ -5,8 +5,8 @@
 <article>
 	<h1>상품 수정 = ${ProductVO.kind }</h1>
 	<form name="frm" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="pseq" value=${ProductVO.pseq }"> <input
-			type="hidden" name="oldImage" value=${ProductVO.image }">
+		<input type="hidden" name="pseq" value="${ProductVO.pseq }"> <input
+			type="hidden" name="oldImage" value="${ProductVO.image }">
 
 		<table id="list">
 			<tr>
@@ -28,7 +28,7 @@
 			<tr>
 				<th>상품명</th>
 				<td width="343" colspan="5">
-				<input type="text" name="name" size="47" maxlength="100" value="${productVO.name}">
+				<input type="text" name="name" size="47" maxlength="100" value="${ProductVO.name}">
 				</td>
 			</tr>
 			
@@ -79,13 +79,13 @@
 			<tr>
 				<th>상세설명</th>
 				<td colspan="5">
-				<textarea name="content" rows="8" cols="70">${productVO.content }</textarea>
+				<textarea name="content" rows="8" cols="70">${ProductVO.content }</textarea>
 				</td>
 			</tr>
 			
 			<tr>
 				<th>상품이미지</th><td colspan="5">
-				<img src="product_images/${ProductVO.image }" width="200"><br>
+				<img src="product_images/${ProductVO.image}" width="200"><br>
 				<input type="file" name="image">
 				</td>
 			</tr>

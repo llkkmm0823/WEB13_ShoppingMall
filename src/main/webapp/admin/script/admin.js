@@ -105,6 +105,28 @@ function go_mod_save(){
 	}
 }
 
+function go_order_save(){
+	
+//현재 화면에 보여지고 있는 주문들의 체크박스들의 체크된 상태가 몇개나 체크되어있는지 갯수를 count합니다
+var count=0;
+var theForm = document.frm;
+	if(theForm.result.length == undefined){ //화면에 표시된 체크박스가 한 개인 경우
+		if(theForm.result.checked==true) count++;
+	}else{ //화면에 표시된 체크박스가 두 개 이상인 경우
+	 for(var i =0; i<theForm.result.length;i++)
+	 	if(theForm.result[i].checked==true)
+	 		count++;
+	}
+	
+	if(count==0){
+		alert("주문처리할 항목을 선택해 주세요");
+	}else{
+		theForm.action="shop.do?command=adminOrderSave";
+		theForm.submit();		
+	}
+		//주문처리하고 (주문 result값 1->2로 변경) orderList.jsp로 되돌아감
+}
+
 
 
 

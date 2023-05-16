@@ -26,6 +26,12 @@ public class AdminProductListAction implements Action {
 		AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");
 		if(avo==null) url="shop.do?command=admin";
 		else {
+			
+			if(request.getParameter("changeMenu")!=null) {
+			//  서브메뉴를 클릭할 때 저장된 세션값으로 값이 입력되어 메뉴에 옮겨가는 것을 막기 위한 코드
+				session.removeAttribute("page");
+				session.removeAttribute("key");
+			}
 
 			Paging paging = new Paging();
 			paging.setDisplayRow(10);
@@ -58,7 +64,7 @@ public class AdminProductListAction implements Action {
 			
 			AdminDao adao = AdminDao.getInstance();
 			
-			int count = adao.getAllcount(key);
+			int count = adao.getAllcount("product","name",key);
 			
 			paging.setTotalCount(count);
 
