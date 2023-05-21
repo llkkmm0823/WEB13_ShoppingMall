@@ -14,6 +14,16 @@ public class CartVO {
 	private Timestamp indate;
 	private String result;
 
+	
+// integer와  int의 차이 
+	
+// int : 자료형(primitive type)
+// 산술 연산 가능함
+// null로 초기화 불가
+	
+// Integer : 래퍼 클래스 (Wrapper class)
+// Unboxing하지 않을 시 산술 연산 불가능함
+// null값 처리 가능
 
 	public Integer getCseq() {
 		return cseq;
